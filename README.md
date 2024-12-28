@@ -24,6 +24,7 @@ echo "192.168.230.145 client" | sudo tee -a /etc/hosts
 1. Prepare the environment:
 
 ```yml
+
 cd /etc/yum.repos.d/
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
@@ -57,6 +58,8 @@ enabled=1
 gpgcheck=0" | sudo tee /etc/yum.repos.d/lustre.repo
 dnf install -y lustre-dkms lustre-osd-zfs-mount lustre kmod-lustre
 modprobe -v lustre
+
+lsmod | grep lustre       # for verification
 ```
 
 4. Prepare the storage:
@@ -74,22 +77,26 @@ umount /mds_pool
 mkfs.lustre --reformat --mdt --fsname=lustrefs --mgs --index=0 --backfstype=zfs mds_pool/mdt0
 mkdir /mnt/mdt0/
 mount -t lustre mds_pool/mdt0 /mnt/mdt0
+
+
+lctl dl                                     # for verification
+lctl get_param -n health_check              # for verification
 ```
 
 5. Configure the network:
 
 ```yml
 nano /etc/modprobe.d/lnet.conf
-# Add: options lnet networks="tcp0(ens33)"
+# Add: options lnet networks="tcp0(ens33)"        # Change with your interface    
 modprobe lnet
 lsmod | grep lnet
 lctl network up
-lctl ping <MGS-SERVER-IP>@tcp0
+lctl ping <MGS-SERVER-IP>@tcp0      # Change with your server IP
 ```
 
 ### Object Storage Target (OST) Servers
 
-Repeat the following steps for each OST server:
+  - *Repeat the following steps for each OST server*:
 
 1. Prepare the environment:
 
@@ -160,7 +167,7 @@ systemctl disable firewalld
 yum install -y nano
 dnf config-manager --set-enabled powertools
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-nano /etc/selinux/config
+nano /etc/selinux/config                             # SELINUX=disabled
 dnf install kernel-headers kernel-devel
 dnf upgrade kernel
 reboot
@@ -202,4 +209,8 @@ lfs osts
 
 ---
 
-This documentation ensures every command is clear and detailed. Update the placeholders (like `<MGS-SERVER-IP>` and `<MGS-SERVER>`) with the actual values specific to your setup.
+
+<br>
+<br>
+
+This implementation ensures every command is clear and detailed. Update the placeholders (like `<MGS-SERVER-IP>` and `<MGS-SERVER>`) with the actual values specific to your setup.
