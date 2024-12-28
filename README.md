@@ -98,6 +98,27 @@ Here we compares the features of various distributed file systems: **Lustre**, *
 
 
 
+## Key prerequisites for the Lustre setup:
+
+- System Requirements: Use CentOS 8 or later on all nodes (MDS, OST, and client).
+  
+- Network: Ensure all nodes have unique IPs and can communicate with each other
+  
+- Software: Install Lustre, ZFS, kernel headers, and necessary modules (kmod-lustre, lustre-client, lustre-server).
+- SELinux & Firewall: Disable SELinux (SELINUX=disabled) and stop/disable the firewall (systemctl stop firewalld).
+- Disk Setup: Partition and format disks for ZFS and Lustre (zpool create, mkfs.lustre).
+- Lustre Configuration: Configure Lustre server (MDS) and storage (OST), then mount the file system.
+- Client Setup: Install Lustre client, configure network, and mount the Lustre file system.
+- Verification: Use Lustre commands (lctl, lfs) to verify setup.
+
+
+
+
+
+
+
+<br>
+<br>
 
 
 # ******************** Implementation Steps ********************
