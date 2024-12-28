@@ -100,7 +100,7 @@ Here we compares the features of various distributed file systems: **Lustre**, *
 
 
 
-# ************************* Implementation Steps ******************************
+# ******************** Implementation Steps ********************
 
 
 
