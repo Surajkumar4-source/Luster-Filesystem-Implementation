@@ -68,9 +68,9 @@
 
 # File System Comparison: Lustre, HDFS, NFS, GlusterFS, PVFS
 
-## Overview
 
-This document compares the features of various distributed file systems: **Lustre**, **HDFS**, **NFS**, **GlusterFS**, and **PVFS**. Each of these file systems has unique characteristics that make them suitable for different use cases, especially in high-performance computing (HPC), big data analytics, and general-purpose file sharing.
+
+Here we compares the features of various distributed file systems: **Lustre**, **HDFS**, **NFS**, **GlusterFS**, and **PVFS**. Each of these file systems has unique characteristics that make them suitable for different use cases, especially in high-performance computing (HPC), big data analytics, and general-purpose file sharing.
 
 ## File System Comparison Table
 
@@ -91,19 +91,16 @@ This document compares the features of various distributed file systems: **Lustr
 - **GlusterFS**: A scalable, distributed file system suitable for cloud storage, virtualized environments, and general-purpose use.
 - **PVFS**: Primarily designed for high-performance parallel I/O in scientific computing and HPC environments, offering strong consistency and optimized performance for parallel workloads.
 
-## Conclusion
 
-Each file system has its strengths and ideal use cases. **Lustre**, **PVFS**, and **HDFS** excel in high-performance, scalable environments, while **NFS** is suitable for smaller, simpler networks. **GlusterFS** offers a balance of scalability, fault tolerance, and flexibility for general-purpose use.
-
-
+<br>
+<br>
 
 
 
 
 
 
-
-
+# ************************* Implementation Steps ******************************
 
 
 
