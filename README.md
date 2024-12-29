@@ -385,7 +385,10 @@ This implementation serves as a foundation for understanding the Lustre File Sys
 <br>
 <br>
 
-*************** Implementation Screnshots ******************
+
+# ******************** Implementation Steps ********************
+
+
 
 
 <br>
