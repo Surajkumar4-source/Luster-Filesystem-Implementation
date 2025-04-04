@@ -121,7 +121,7 @@ Here we compares the features of various distributed file systems: **Lustre**, *
 <br>
 
 
-# ******************** Implementation Steps ********************
+# ******** Implementation Steps ********
 
 
 
@@ -386,7 +386,7 @@ This implementation serves as a foundation for understanding the Lustre File Sys
 <br>
 
 
-# ******************** Implementation Screenshoots ********************
+# ******** Implementation Screenshoots ********
 
 
 
